@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <div class="registration-form">
+        <!------------------------- start of left form ------------------------->
+        <div class="left-form">
+            <h2>General Information</h2>
+            <div><input class="inputs" id="Title" placeholder="Title           (Optional)" type="text"></div>
+            <div><input minlength="4" placeholder="Name" type="text" class="inputs" name="" id="name">
+                <input minlength="4" placeholder="Father Name" type="text" class="inputs" name="" id="fathername">
+            </div>
+            <div>
+           
+                <form>         
+                   <select list="gender" name="gender" placeholder="Gender" type="text" class="inputs" name="" id="gender" >
+                      <option value="Select gender">Select gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option> 
+                    </select>
+    
+                  </form>
+
+            </div>
+            <div><input placeholder="Business Arena            (Optional)" type="text" class="inputs" name=""
+                    id="Business">
+                <input placeholder="Employees            (Optional)" type="text" class="inputs" name="" id="Employees">
+            </div>
+
+            <div>
+                <img src="./image/registration.jpg" alt="">
+            </div>
+        </div>
+        <!------------------------- end of left form --------------------------->
+
+        <!------------------------- start of Right form ------------------------>
+        <div class="right-form">
+            <h2>Contact Details</h2>
+            <div>
+                <input placeholder="Additational Information    (Optional)" id="additationalInformation" class="inputs"
+                    type="text">
+            </div>
+            <div>
+                <input class="inputs" placeholder="Age" id="age" type="text">
+        
+                <input class="inputs" placeholder="Phone Number" type="text" name="" id="number">
+            </div>
+            <div><input id="email" class="inputs" placeholder="Your Email" type="text"></div>
+            <div>
+                <input id="country" class="inputs" placeholder="Country" type="text">
+                <input id="city" class="inputs" placeholder="City" type="text">
+            </div>
+            <button onclick="registeration()" class="btn" role="button">Registration</button>
+            <div>
+                <h2 class="social">Social Media</h2>
+                <img class="im" src="./image/feedback.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!------------------------- end of right form -------------------------->
+    <button onclick="admin()" id="panel" class="btn admin" role="button">Admin Panel</button>
+
+
+
+    <div class="popup" id="popup">
+        <div class="center">
+            <input type="checkbox" id="show">
+            <label id="shows" onclick="adminShow()" for="show" class="show-btn"><center>Login </center> <br><span class="pas"> Password and username is admin</span></label>
+            <div class="container">
+                <label for="show" class="close-btn fas fa-times" title="close"></label>
+                <div class="text">
+                    Admin Login
+                </div>
+                <form action="#">
+                    <div class="data">
+                        <label class="label">Username</label>
+                        <input id="username" type="text">
+                    </div>
+                    <div class="data">
+                        <label class="label">Password</label>
+                        <input id="pass" type="password">
+                    </div>
+                    <div class="forgot-pass">
+                        <a>Forgot Password?</a>
+                    </div>
+                    <div class="btn">
+                        <div class="inner"></div>
+                        <button type="button" onclick="login()">login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
