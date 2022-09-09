@@ -46,8 +46,7 @@ function registeration() {
         swal("Invalid City name")
         return false
     }else{
-        let i = 1;
-        console.log(i)
+
         let name2 = name
         let fathername2 = fathername
         let gender2 = gender
@@ -58,9 +57,8 @@ function registeration() {
         let city2 = city
         let newArry =[name2,fathername2,gender2,age2,number2,email2,country2,city2] 
         console.log(newArry)
-        i++
         arr.push(newArry);
-        localStorage.setItem( "data_"+ i +Math.random(),JSON.stringify(arr));
+        localStorage.setItem( "data_"+Math.random(),JSON.stringify(arr));
         console.log(i)
         // clearInput()
     }
