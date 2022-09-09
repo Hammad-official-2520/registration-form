@@ -64,8 +64,19 @@ function registeration() {
         console.log(i)
         // clearInput()
     }
-    swal({title: "Registration Successful", text: "Your registration is Successfully done!", type: 
-    "success"}).then(function(){ 
+
+    swal({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success",
+        button: "Aww yiss!",
+      });
+
+
+
+
+    swal({title: "Registration Successful", text: "Your registration is Successfully done!",icon: "success"
+        }).then(function(){ 
        location.reload();
        }
     );
