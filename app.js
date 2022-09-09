@@ -59,7 +59,6 @@ function registeration() {
         console.log(newArry)
         arr.push(newArry);
         localStorage.setItem( "data_"+Math.random(),JSON.stringify(arr));
-        console.log(i)
         // clearInput()
     }
     swal({title: "Registration Successful", text: "Your registration is Successfully done!",icon: "success"
