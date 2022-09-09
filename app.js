@@ -1,44 +1,27 @@
-// let name = document.getElementById("name").value;
-
-// console.log(name)
-// localStorage.setItem("name",name)
-// let lasttName = document.getElementById("fathername").value;
-// let gender = document.getElementById("gender").value;
-// let employees = document.getElementById("Employees").value;
-// let business = document.getElementById("Business").value;
-// let additional = document.getElementById("additationalInformation").value;
-// let age = document.getElementById("age").value;
-// let number = document.getElementById("number").value;
-// let email = document.getElementById("email").value;
-// let country = document.getElementById("country").value;
-// let city = document.getElementById("city").value;
-
-
 let arr = []
 function registeration() {
-
 
     let name = document.getElementById("name").value;
     let nameReg =   /(^[a-zA-Z]+$)/
     if(!name.match(nameReg)){
-        swal("Invalid first name")
+        swal("Invalid name")
         return false
     }
     
     let fathername = document.getElementById("fathername").value;
     if(!fathername.match(nameReg)){
-        swal("Invalid Last name")
+        swal("Invalid Father name")
         return false
     }
     let gender = document.getElementById("gender").value;
     if(!gender.match(nameReg)){
-        swal("Invalid gender name")
+        swal("Invalid gender ")
         return false
     }
     let age = document.getElementById("age").value;
     let ageReg = /^(\+?\d{1,3}|\d{1,4})$/
     if(!age.match(ageReg)){
-        swal("Invalid country age")
+        swal("Invalid age")
         return false
     }
     let number = document.getElementById("number").value;
@@ -55,14 +38,15 @@ function registeration() {
     }
     let country = document.getElementById("country").value;
     if(!country.match(nameReg)){
-        swal("Invalid country name")
+        swal("Invalid Country name")
         return false
     }
     let city = document.getElementById("city").value;
     if(!city.match(nameReg)){
-        swal("Invalid city name")
+        swal("Invalid City name")
         return false
     }else{
+        var userID = 1;
         let name2 = name
         let fathername2 = fathername
         let gender2 = gender
@@ -74,40 +58,56 @@ function registeration() {
         let newArry =[name2,fathername2,gender2,age2,number2,email2,country2,city2] 
         console.log(newArry)
         arr.push(newArry);
-        localStorage.setItem("data",JSON.stringify(arr)) 
-
+        localStorage.setItem( "data_"+userID,JSON.stringify(arr));
+        clearInput()
+        userID++
+    
     }
+
     swal("Registration Successful", "Your subscription is Successfully done!", "success"); 
+
 }
-function loadAll(){
+
+function loadAll() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
 
     let index = 1
-    let getData = localStorage.getItem("data")
-    let newData =  JSON.parse(getData)
-    for (let i = 0; i < newData.length; i++) {
-        let row = table.insertRow()
-        let cell1 = row.insertCell()
-        let cell2 = row.insertCell()
-        let cell3 = row.insertCell()
-        let cell4 = row.insertCell()
-        let cell5 = row.insertCell()
-        let cell6 = row.insertCell()
-        let cell7 = row.insertCell()
-        let cell8 = row.insertCell()
-        let cell9 = row.insertCell()
-        cell1.innerHTML =  index++;
-        cell2.innerHTML = newData[i][0]
-        cell3.innerHTML = newData[i][1]
-        cell4.innerHTML = newData[i][2]
-        cell5.innerHTML = newData[i][3]
-        cell6.innerHTML = newData[i][4]
-        cell7.innerHTML = newData[i][5]
-        cell8.innerHTML = newData[i][6]
-        cell9.innerHTML = newData[i][7]
-      }
+    for ( let i = 0; i < Object.keys(localStorage).length; i++) {
+
+        let getData = localStorage.getItem( Object.keys(localStorage)[i] )
+        let newData =  JSON.parse(getData)  
+        
+        let x = 0;
+        for ( let x = 0; x < newData.length; x++ ) {
+            
+            let row = table.insertRow()
+            let cell1 = row.insertCell()
+            let cell2 = row.insertCell()
+            let cell3 = row.insertCell()
+            let cell4 = row.insertCell()
+            let cell5 = row.insertCell()
+            let cell6 = row.insertCell()
+            let cell7 = row.insertCell()
+            let cell8 = row.insertCell()
+            let cell9 = row.insertCell()
+            cell1.innerHTML =  index++;
+            cell2.innerHTML = newData[x][0]
+            cell3.innerHTML = newData[x][1]
+            cell4.innerHTML = newData[x][2]
+            cell5.innerHTML = newData[x][3]
+            cell6.innerHTML = newData[x][4]
+            cell7.innerHTML = newData[x][5]
+            cell8.innerHTML = newData[x][6]
+            cell9.innerHTML = newData[x][7]
+        }
+    }
 }
 
-loadAll()
+loadAll();
+
 function admin(){
     document.getElementById("popup").style.display = "flex";
     document.getElementById("panel").style.display = "none"
@@ -133,47 +133,38 @@ function login(){
     }
 }
 
-function searchBar(){
-    let filter = document.getElementById("myInput").value.toUpperCase();
-    console.log(filter)
-    let table = document.getElementById("table");
-    let tbody = document.getElementById("tbody");
-    let tr = tbody.getElementsByTagName("tr")
-    for(let i = 0; i<tr.length; i++){
-        let td = document.getElementsByTagName("td")[1];
-        console.log(td)
-        if(td){
-            let textvalue = td.textContent || td.innerHTML;
-            if(textvalue.toUpperCase().indexOf(filter) > -1){
-                tr[i].style.display = ""
-            }else{
-                tr[i].style.display = "none"
-            }
-        }
-        
-    }
-    
+function clearInput(){
+    document.getElementById("name").value
+
 }
+function searchBar(){
 
-
-// function myFunction() {
-//     // Declare variables
-//     var input, filter, table, tr, td, i, txtValue;
-//     input = document.getElementById("myInput");
-//     filter = input.value.toUpperCase();
-//     table = document.getElementById("myTable");
-//     tr = table.getElementsByTagName("tr");
-  
-//     // Loop through all table rows, and hide those who don't match the search query
-//     for (i = 0; i < tr.length; i++) {
-//       td = tr[i].getElementsByTagName("td")[0];
-//       if (td) {
-//         txtValue = td.textContent || td.innerText;
-//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//           tr[i].style.display = "";
-//         } else {
-//           tr[i].style.display = "none";
-//         }
-//       }
-//     }
-//   }
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            var div = document.getElementById("div");
+            tr[i].style.display = "none";
+            
+          }
+        }       
+    }
+}
+function clearInput(){
+    document.getElementById("name").value = ""
+    document.getElementById("fathername").value= ""
+    document.getElementById("gender").value= ""
+    document.getElementById("age").value= ""
+    document.getElementById("number").value= ""
+    document.getElementById("email").value= ""
+    document.getElementById("country").value= ""
+    document.getElementById("city").value= ""
+}

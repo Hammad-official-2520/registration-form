@@ -18,14 +18,14 @@
 }
 .left-form{
     width: 50%;
-    height: 80%;
+    height: 800px;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 10px 0px 0px 10px;
 }
 .right-form{
         width: 50%;
-        height: 70%;
+        height: 800px;
         background-color: #19B5FE;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
         border-radius: 0px 10px 10px 0px;
@@ -101,11 +101,6 @@ img{
   
 
 table{
- position: absolute;
- z-index: 2;
- left: 50%;
- top: 50%;
- transform: translate(-50%,-50%);
  width: 80%; 
  border-collapse: collapse;
  border-spacing: 0;
@@ -124,7 +119,8 @@ td {
 
 }
 th{
- background-color: #ba68c8;
+ 
+ background-color: #000080;
  color: #fafafa;
  font-family: 'Open Sans',Sans-serif;
  font-weight: 100;
@@ -278,4 +274,22 @@ form .btn button{
   margin: 50px;
   font-size: 20px;
   border-radius: 5px;
+}
+#div{
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 55.5%;
+  transform: translate(-50%,-50%);
+  width: 80%; 
+  box-shadow: 0 2px 15px rgba(64,64,64,.7);
+  border-radius: 12px 12px 12px 12px;
+  overflow: hidden;
+  font-size: 30px;
+  height: 60px;
+  background-color: #19B5FE;
+  display: none;
+}
+#div h2{
+  color: red
 }
