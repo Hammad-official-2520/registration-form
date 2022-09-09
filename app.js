@@ -4,46 +4,46 @@ function registeration() {
     let name = document.getElementById("name").value;
     let nameReg =   /(^[a-zA-Z]+$)/
     if(!name.match(nameReg)){
-        // swal("Invalid name")
+        swal("Invalid name")
         return false
     }
     
     let fathername = document.getElementById("fathername").value;
     if(!fathername.match(nameReg)){
-        // swal("Invalid Father name")
+        swal("Invalid Father name")
         return false
     }
     let gender = document.getElementById("gender").value;
     if(!gender.match(nameReg)){
-        // swal("Invalid gender ")
+        swal("Invalid gender ")
         return false
     }
     let age = document.getElementById("age").value;
     let ageReg = /^(\+?\d{1,3}|\d{1,4})$/
     if(!age.match(ageReg)){
-        // swal("Invalid age")
+        swal("Invalid age")
         return false
     }
     let number = document.getElementById("number").value;
     let numReg = /^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}/g
     if(!number.match(numReg)){
-        // swal("Invalid Phone number")
+        swal("Invalid Phone number")
         return false
     }
     let email = document.getElementById("email").value;
     let emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
     if(!email.match(emailReg)){
-        // swal("Invalid email")
+        swal("Invalid email")
         return false
     }
     let country = document.getElementById("country").value;
     if(!country.match(nameReg)){
-        // swal("Invalid Country name")
+        swal("Invalid Country name")
         return false
     }
     let city = document.getElementById("city").value;
     if(!city.match(nameReg)){
-        // swal("Invalid City name")
+        swal("Invalid City name")
         return false
     }else{
         let name2 = name
@@ -59,11 +59,10 @@ function registeration() {
         arr.push(newArry);
         localStorage.setItem( "data_"+Math.random(),JSON.stringify(arr));
         clearInput()
-        
-    
     }
 
-    // swal("Registration Successful", "Your subscription is Successfully done!", "success"); 
+    swal("Registration Successful", "Your subscription is Successfully done!", "success"); 
+    window.location(relo)
 
 }
 
@@ -122,19 +121,14 @@ function login(){
     let pass = "admin";
     let username = "admin"
     if( !username == username1){
-        // swal("Invalid username")
+        swal("Invalid username")
         
     }else if(!pass == pass1){
-        // swal("Invalid password")
+        swal("Invalid password")
     }else{
         window.location.href = "admin.html"
         
     }
-}
-
-function clearInput(){
-    document.getElementById("name").value
-
 }
 function searchBar(){
 
