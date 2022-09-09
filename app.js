@@ -161,7 +161,6 @@ function searchBar(){
 function clearInput(){
     document.getElementById("name").value = ""
     document.getElementById("fathername").value= ""
-    document.getElementById("gender").value= ""
     document.getElementById("age").value= ""
     document.getElementById("number").value= ""
     document.getElementById("email").value= ""
