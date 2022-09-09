@@ -46,6 +46,8 @@ function registeration() {
         swal("Invalid City name")
         return false
     }else{
+        let i = 1;
+        console.log(i)
         let name2 = name
         let fathername2 = fathername
         let gender2 = gender
@@ -56,13 +58,17 @@ function registeration() {
         let city2 = city
         let newArry =[name2,fathername2,gender2,age2,number2,email2,country2,city2] 
         console.log(newArry)
+        i++
         arr.push(newArry);
-        localStorage.setItem( "data_"+Math.random(),JSON.stringify(arr));
-        clearInput()
+        localStorage.setItem( "data_"+ i +Math.random(),JSON.stringify(arr));
+        console.log(i)
+        // clearInput()
     }
-
-    swal("Registration Successful", "Your subscription is Successfully done!", "success"); 
-    window.location(relo)
+    swal({title: "Registration Successful", text: "Your registration is Successfully done!", type: 
+    "success"}).then(function(){ 
+       location.reload();
+       }
+    );
 
 }
 
@@ -71,6 +77,7 @@ function loadAll() {
     var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
+        console.log(keys)
 
     let index = 1
     for ( let i = 0; i < Object.keys(localStorage).length; i++) {
@@ -151,12 +158,12 @@ function searchBar(){
         }       
     }
 }
-function clearInput(){
-    document.getElementById("name").value = ""
-    document.getElementById("fathername").value= ""
-    document.getElementById("age").value= ""
-    document.getElementById("number").value= ""
-    document.getElementById("email").value= ""
-    document.getElementById("country").value= ""
-    document.getElementById("city").value= ""
-}
+// function clearInput(){
+//     document.getElementById("name").value = ""
+//     document.getElementById("fathername").value= ""
+//     document.getElementById("age").value= ""
+//     document.getElementById("number").value= ""
+//     document.getElementById("email").value= ""
+//     document.getElementById("country").value= ""
+//     document.getElementById("city").value= ""
+// }
